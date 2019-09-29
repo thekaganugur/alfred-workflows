@@ -7,9 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
-
-	// Package is called aw
 
 	aw "github.com/deanishe/awgo"
 )
@@ -20,14 +17,11 @@ func init() {
 	wf = aw.New()
 }
 
-// Your workflow starts here
+// Workflow starts here
 func run() {
 	var query string
 
-	// ----------------------------------------------------------------
 	// Handle CLI arguments
-	// ----------------------------------------------------------------
-
 	// You should always use wf.Args() in Script Filters. It contains the
 	// same as os.Args[1:], but the arguments are first parsed for AwGo's
 	// magic actions (i.e. `workflow:*` to allow the user to easily open
@@ -39,36 +33,16 @@ func run() {
 		// This guard serves mostly to prevent errors when run on
 		// the command line.
 		query = args[0]
-
-		// go runApp()
 	}
 
-	// ----------------------------------------------------------------
-	// Filter items based on user query
-	// ----------------------------------------------------------------
-
-	// if query != "" {
-	//
-	// 	res := wf.Filter(query)
-	//
-	// 	log.Printf("%d results match \"%s\"", len(res), query)
-	//
-	// 	for i, r := range res {
-	// 		log.Printf("%02d. score=%0.1f sortkey=%s", i+1, r.Score, wf.Feedback.Keywords(i))
-	// 	}
-	// }
-
+	icon := &aw.Icon{Value: "./icon.png"}
 	link := fmt.Sprintf("https://ac.tureng.co/?t=%s&l=entr", query)
 	keys := getKeys(link)
 
 	for _, e := range keys {
-		wf.NewItem(e).Valid(true).Var("URL", link).Arg(query)
-
+		wf.NewItem(e).Valid(true).Var("URL", link).Arg(query).Icon(icon)
 	}
 
-	// Add a "Script Filter" result
-
-	// Send results to Alfred
 	wf.SendFeedback()
 }
 
@@ -98,20 +72,5 @@ func getKeys(link string) []string {
 		log.Fatal(err)
 	}
 
-	// keys = []string{"kitap", "kitap", "akciğeri", "kitap", "altlığı", "kitap", "armağan"}
-
 	return keys
-}
-
-func runApp() {
-
-	cmd := exec.Command("bash -c 'open -g /Applications/Tureng.app'")
-	_, err := cmd.Output()
-
-	if err != nil {
-		// println(err.Error())
-		return
-	}
-
-	// print(string(stdout))
 }
