@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 
 	aw "github.com/deanishe/awgo"
@@ -21,38 +22,28 @@ func init() {
 func run() {
 	var query string
 
-	// Handle CLI arguments
-	// You should always use wf.Args() in Script Filters. It contains the
-	// same as os.Args[1:], but the arguments are first parsed for AwGo's
-	// magic actions (i.e. `workflow:*` to allow the user to easily open
-	// the log or data/cache directory).
 	if args := wf.Args(); len(args) > 0 {
-		// If you're using "{query}" or "$1" (with quotes) in your
-		// Script Filter, $1 will always be set, even if to an empty
-		// string.
-		// This guard serves mostly to prevent errors when run on
-		// the command line.
 		query = args[0]
+		query = url.QueryEscape(query)
 	}
 
 	icon := &aw.Icon{Value: "./icon.png"}
 	link := fmt.Sprintf("https://ac.tureng.co/?t=%s&l=entr", query)
-	keys := getKeys(link)
 
-	for _, e := range keys {
-		wf.NewItem(e).Valid(true).Var("URL", link).Arg(query).Icon(icon)
+	sugs := getSuggestions(link)
+
+	for _, sug := range sugs {
+		wf.NewItem(sug).Valid(true).Icon(icon).UID(sug).Autocomplete(sug).Arg(sug)
 	}
 
 	wf.SendFeedback()
 }
 
 func main() {
-	// Wrap your entry point with Run() to catch and log panics and
-	// show an error in Alfred instead of silently dying
 	wf.Run(run)
 }
 
-func getKeys(link string) []string {
+func getSuggestions(link string) []string {
 	resp, err := http.Get(link)
 	if err != nil {
 		log.Fatal(err)
@@ -66,11 +57,10 @@ func getKeys(link string) []string {
 		os.Exit(1)
 	}
 
-	var keys []string
-	err = json.Unmarshal([]byte(body), &keys)
+	var sugs []string
+	err = json.Unmarshal([]byte(body), &sugs)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	return keys
+	return sugs
 }

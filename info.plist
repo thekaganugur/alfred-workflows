@@ -12,17 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>75272EFB-9D4C-45E8-9AF8-5438473001B2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>AD635160-5138-42C9-8253-DBED97E7DE20</string>
+				<string>748A58BE-E3E6-4FB5-9148-CEA87D1DA615</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -48,9 +38,38 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv		tell application "Tureng"		activate	end tell		tell application "System Events"		tell process "Tureng"			set frontmost to true
+		    key code 0 using {command down}
+			keystroke {argv}
+		end tell	end tell
+
+	set theDialogText to argv
+	display dialog theDialogTextend run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>AD635160-5138-42C9-8253-DBED97E7DE20</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>open -g Tureng</string>
+				<string>open -g /Applications/Tureng.app</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -81,7 +100,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>t</string>
+				<string>tg</string>
 				<key>queuedelaycustom</key>
 				<integer>2</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -103,9 +122,9 @@
 				<key>title</key>
 				<string>Search Tureng</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -117,27 +136,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>on run argv		tell application "Tureng"		activate	end tell		tell application "System Events"		tell process "Tureng"			set frontmost to true
-		    key code 0 using {command down}
-			keystroke (item 1 of argv)		end tell	end tellend run</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
+				<key>browser</key>
 				<string></string>
-				<key>type</key>
-				<integer>6</integer>
+				<key>spaces</key>
+				<string>%20</string>
+				<key>url</key>
+				<string>https://tureng.com/en/turkish-english/{query}</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>AD635160-5138-42C9-8253-DBED97E7DE20</string>
+			<string>748A58BE-E3E6-4FB5-9148-CEA87D1DA615</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -146,24 +159,31 @@
 Double click this workflow in sidebar -&gt;&gt; Open website.</string>
 	<key>uidata</key>
 	<dict>
-		<key>75272EFB-9D4C-45E8-9AF8-5438473001B2</key>
+		<key>748A58BE-E3E6-4FB5-9148-CEA87D1DA615</key>
 		<dict>
 			<key>xpos</key>
-			<integer>370</integer>
+			<integer>560</integer>
 			<key>ypos</key>
-			<integer>95</integer>
+			<integer>185</integer>
 		</dict>
-		<key>AD635160-5138-42C9-8253-DBED97E7DE20</key>
+		<key>75272EFB-9D4C-45E8-9AF8-5438473001B2</key>
 		<dict>
 			<key>xpos</key>
 			<integer>360</integer>
 			<key>ypos</key>
-			<integer>285</integer>
+			<integer>45</integer>
+		</dict>
+		<key>AD635160-5138-42C9-8253-DBED97E7DE20</key>
+		<dict>
+			<key>xpos</key>
+			<integer>515</integer>
+			<key>ypos</key>
+			<integer>45</integer>
 		</dict>
 		<key>DDF22D7C-D74D-494A-959B-0D75D728F888</key>
 		<dict>
 			<key>xpos</key>
-			<integer>155</integer>
+			<integer>120</integer>
 			<key>ypos</key>
 			<integer>185</integer>
 		</dict>
