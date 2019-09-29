@@ -141,31 +141,37 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Details on how to use this workflow are found in the GitHub repo attached to the workflow. 
+
+Double click this workflow in sidebar -&gt;&gt; Open website.</string>
 	<key>uidata</key>
 	<dict>
 		<key>75272EFB-9D4C-45E8-9AF8-5438473001B2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>350</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>95</integer>
 		</dict>
 		<key>AD635160-5138-42C9-8253-DBED97E7DE20</key>
 		<dict>
 			<key>xpos</key>
 			<integer>360</integer>
 			<key>ypos</key>
-			<integer>315</integer>
+			<integer>285</integer>
 		</dict>
 		<key>DDF22D7C-D74D-494A-959B-0D75D728F888</key>
 		<dict>
 			<key>xpos</key>
 			<integer>155</integer>
 			<key>ypos</key>
-			<integer>165</integer>
+			<integer>185</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/kgnugur</string>
 </dict>
