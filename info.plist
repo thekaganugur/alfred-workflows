@@ -29,7 +29,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Tureng</string>
+	<string>Tureng Suggest</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -100,7 +100,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>tg</string>
+				<string>t</string>
 				<key>queuedelaycustom</key>
 				<integer>2</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -120,11 +120,11 @@
 				<key>subtext</key>
 				<string>Search Tureng with Suggestions</string>
 				<key>title</key>
-				<string>Search Tureng</string>
+				<string>Search tureng.com for '{query}'</string>
 				<key>type</key>
 				<integer>5</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
