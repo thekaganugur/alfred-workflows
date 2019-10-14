@@ -1,4 +1,4 @@
-# Alfred workflows
+# Alfred workflows
 
 <div>
   <a href="/LICENSE.md"><img alt="GitHub" src="https://img.shields.io/github/license/kgnugur/tureng-alfred"></a>
