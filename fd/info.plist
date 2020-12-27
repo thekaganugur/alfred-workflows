@@ -101,7 +101,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>"</string>
+				<string>fd</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -113,7 +113,7 @@
 				<key>runningsubtext</key>
 				<string>Fding…</string>
 				<key>script</key>
-				<string>./alfred-ripgrep "$1"</string>
+				<string>./fd "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

@@ -112,7 +112,7 @@
 				<key>runningsubtext</key>
 				<string>Retrieving search suggestions...</string>
 				<key>script</key>
-				<string>./tureng-alfred "$1"</string>
+				<string>./tureng "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

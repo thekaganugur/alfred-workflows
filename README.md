@@ -16,10 +16,9 @@ fd Your 🏠 and get all files, respecting gitignore.
 - Uses fd for fetching files.
 - Fuzzy filtering is supported.
 - Native alfred file view (Not recommended as it diminishes fuzzy filtering
-functionality)
+  functionality)
 - Full path view. (Recommended)
 - Respecting ignore file when searching.
-
 
 ---
 
@@ -32,3 +31,13 @@ Search in tureng with search suggestions.
 - Search suggestions
 - Support for native app
 - Support for web seach
+
+---
+
+## Development
+
+cd ./tureng && go build
+./workflow-install.py ./tureng
+
+cd ./fd && go build
+./workflow-install.py ./fd
